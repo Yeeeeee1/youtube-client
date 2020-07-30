@@ -5,7 +5,7 @@ export interface IResult {
   items: ISearchItems[];
 }
 
-interface ISearchItems {
+export interface ISearchItems {
   kind: string;
   etag: string;
   id: string;

@@ -6,7 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  getApi() {
+    let wrapper = document.getElementsByClassName(
+      'wrapper'
+    ) as HTMLCollectionOf<HTMLElement>;
+    wrapper[0].style.display = 'flex';
+  }
+
   constructor() {}
 
-  public ngOnInit(): void {}
+  ngOnInit(): void {}
 }

@@ -1,1 +1,31 @@
-<p>search-results works!</p>
+<div class="wrapper">
+  <div class="wrapper__card" *ngFor="let model of models">
+    <img
+      class="wrapper__preview"
+      src="{{ model.snippet.thumbnails.maxres.url }}"
+    />
+    <div class="wrapper__info">
+      <img src="../../../assets/viewed.png" class="wrapper__picture-info" />
+      <span class="wrapper__statistics">{{ model.statistics.viewCount }}</span>
+      <img src="../../../assets/liked.png" class="wrapper__picture-info" />
+      <span class="wrapper__statistics">{{ model.statistics.likeCount }}</span>
+      <img src="../../../assets/dislike.png" class="wrapper__picture-info" />
+      <span class="wrapper__statistics">{{
+        model.statistics.dislikeCount
+      }}</span>
+      <img src="../../../assets/share.png" class="wrapper__picture-info" />
+    </div>
+    <h3 class="wrapper__title">{{ model.snippet.title }}</h3>
+    <button class="wrapper__more">...more</button>
+    <div
+      class="wrapper__line"
+      [ngClass]="{
+        blueClass: model.snippet.publishedAt.slice(8, -14) < 7,
+        greenClass:
+          model.snippet.publishedAt.slice(8, -14) > 7 &&
+          model.snippet.publishedAt.slice(8, -14) < 30,
+        redClass: model.snippet.publishedAt.slice(8, -14) > 30
+      }"
+    ></div>
+  </div>
+</div>
