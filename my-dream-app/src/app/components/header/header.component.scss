@@ -40,9 +40,10 @@
     cursor: pointer;
   }
   &__user-icon {
+    margin-top: 3px;
     margin-left: 10px;
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
   }
   &__login-name {
     margin-left: 300px;
@@ -56,4 +57,58 @@
   width: 100%;
   height: 50px;
   background: #e5e5e5;
+}
+
+@media screen and (max-width: 1500px) {
+  .header {
+    &__login-name {
+      margin-left: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    &__login-name {
+      margin-left: 50px;
+    }
+    &__logo {
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    &__login-name {
+      margin-left: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header {
+    &__logo {
+      display: none;
+    }
+    &__login-name {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    &__settings {
+      width: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header {
+    &__settings {
+      width: 30px;
+    }
+  }
 }
