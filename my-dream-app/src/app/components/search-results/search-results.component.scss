@@ -33,6 +33,7 @@
     cursor: pointer;
   }
   &__more {
+    position: absolute;
     width: 120px;
     height: 32px;
     background: #2f80ed;
@@ -42,7 +43,7 @@
     color: white;
     cursor: pointer;
     box-shadow: 0 0 5px #2f80ed;
-    margin-top: auto;
+    margin-top: 300px;
   }
   &__statistics {
     margin-left: 5px;
