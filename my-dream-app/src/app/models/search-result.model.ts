@@ -29,7 +29,7 @@ interface ISnippet {
   tags: string[];
   categoryId: string;
   liveBroadcastContent: string;
-  localized: localized;
+  localized: ILocalized;
   defaultAudioLanguage: string;
 }
 
@@ -39,7 +39,7 @@ interface IThumbailsItem {
   height: number;
 }
 
-interface localized {
+interface ILocalized {
   title: string;
   description: string;
 }

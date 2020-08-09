@@ -395,7 +395,7 @@ export class SearchResultsComponent implements OnInit {
         channelId: 'UCZ9qFEC82qM6Pk-54Q4TVWA',
         title: 'What is Angular? (Explained for Beginners)',
         description:
-          "When you're just starting out you are probably wondering \"What is Angular exactly? When you ask that question it leads to a lot of concepts that are over your head and don't make sense. So in this video I really want to cover what exactly Angular is and why it's even necessary... all from a beginners point of view.\n\n*** DOWNLOAD THE FREE REPORT ***\nFor my free report on the five best programming languages in 2019 (for beginners) go to: https://andysterkowitz.com/report",
+          'When youre just starting out you are probably wondering "What is Angular exactly? When you ask that question it leads to a lot of concepts that are over your head and dont make sense. So in this video I really want to cover what exactly Angular is and why its even necessary... all from a beginners point of view.\n\n*** DOWNLOAD THE FREE REPORT ***\nFor my free report on the five best programming languages in 2019 (for beginners) go to: https://andysterkowitz.com/report',
         thumbnails: {
           default: {
             url: 'https://i.ytimg.com/vi/VAkio68d51A/default.jpg',
@@ -453,7 +453,7 @@ export class SearchResultsComponent implements OnInit {
         localized: {
           title: 'What is Angular? (Explained for Beginners)',
           description:
-            "When you're just starting out you are probably wondering \"What is Angular exactly? When you ask that question it leads to a lot of concepts that are over your head and don't make sense. So in this video I really want to cover what exactly Angular is and why it's even necessary... all from a beginners point of view.\n\n*** DOWNLOAD THE FREE REPORT ***\nFor my free report on the five best programming languages in 2019 (for beginners) go to: https://andysterkowitz.com/report",
+            'When youre just starting out you are probably wondering "What is Angular exactly? When you ask that question it leads to a lot of concepts that are over your head and dont make sense. So in this video I really want to cover what exactly Angular is and why its even necessary... all from a beginners point of view.\n\n*** DOWNLOAD THE FREE REPORT ***\nFor my free report on the five best programming languages in 2019 (for beginners) go to: https://andysterkowitz.com/report',
         },
         defaultAudioLanguage: 'en',
       },
@@ -702,7 +702,7 @@ export class SearchResultsComponent implements OnInit {
       snippet: {
         publishedAt: '2019-09-16T16:53:41.000Z',
         channelId: 'UCsBjURrPoezykLs9EqgamOA',
-        title: "Angular for Beginners - Let's build a Tic-Tac-Toe PWA",
+        title: 'Angular for Beginners - Lets build a Tic-Tac-Toe PWA',
         description:
           'Learn the basics of Angular 8 🚀 by building a tic-tac-toe game 🕹️ from scratch...Then deploy it as an installable progressive web app (PWA). Go beyond the basics 👉https://fireship.io/courses/angular/\n\nFull Source Code: https://github.com/fireship-io/angular-tic-tac-toe\nAngular Docs: https://angular.io/\n\n#angular #pwa #tutorial\n\nTake Angular quizzes 🤓\n\niOS https://itunes.apple.com/us/app/fireship/id1462592372?mt=8\nAndroid https://play.google.com/store/apps/details?id=io.fireship.quizapp\n\nUpgrade to Fireship PRO at https://fireship.io/pro\nUse code lORhwXd2 for 25% off your first payment.',
         thumbnails: {
@@ -751,7 +751,7 @@ export class SearchResultsComponent implements OnInit {
         categoryId: '28',
         liveBroadcastContent: 'none',
         localized: {
-          title: "Angular for Beginners - Let's build a Tic-Tac-Toe PWA",
+          title: 'Angular for Beginners - Lets build a Tic-Tac-Toe PWA',
           description:
             'Learn the basics of Angular 8 🚀 by building a tic-tac-toe game 🕹️ from scratch...Then deploy it as an installable progressive web app (PWA). Go beyond the basics 👉https://fireship.io/courses/angular/\n\nFull Source Code: https://github.com/fireship-io/angular-tic-tac-toe\nAngular Docs: https://angular.io/\n\n#angular #pwa #tutorial\n\nTake Angular quizzes 🤓\n\niOS https://itunes.apple.com/us/app/fireship/id1462592372?mt=8\nAndroid https://play.google.com/store/apps/details?id=io.fireship.quizapp\n\nUpgrade to Fireship PRO at https://fireship.io/pro\nUse code lORhwXd2 for 25% off your first payment.',
         },

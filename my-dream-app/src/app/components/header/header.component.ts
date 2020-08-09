@@ -6,15 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  getApi() {
-    let wrapper = document.getElementsByClassName(
+  getApi(): void {
+    const wrapper = document.getElementsByClassName(
       'wrapper'
     ) as HTMLCollectionOf<HTMLElement>;
     wrapper[0].style.display = 'flex';
   }
 
-  showSettings() {
-    let settings = document.getElementById('settings-wrapper');
+  showSettings(): void {
+    const settings = document.getElementById('settings-wrapper');
     if (settings.style.display === 'none' || settings.style.display === '') {
       settings.style.display = 'flex';
     } else {
