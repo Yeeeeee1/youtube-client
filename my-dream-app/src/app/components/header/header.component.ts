@@ -14,13 +14,11 @@ export class HeaderComponent implements OnInit {
   }
 
   showSettings() {
-    let settings = document.getElementsByClassName(
-      'settings-wrapper'
-    ) as HTMLCollectionOf<HTMLElement>;
-    if (settings[0].style.display === 'none') {
-      settings[0].style.display = 'flex';
+    let settings = document.getElementById('settings-wrapper');
+    if (settings.style.display === 'none' || settings.style.display === '') {
+      settings.style.display = 'flex';
     } else {
-      settings[0].style.display = 'none';
+      settings.style.display = 'none';
     }
   }
 
