@@ -1,5 +1,5 @@
-<div class="wrapper">
-  <div class="wrapper__card" *ngFor="let model of models">
+<div class="wrapper" *ngIf="bool">
+  <div class="wrapper__card" *ngFor="let model of models | filter: searchTerm">
     <img
       class="wrapper__preview"
       src="{{ model.snippet.thumbnails.maxres.url }}"

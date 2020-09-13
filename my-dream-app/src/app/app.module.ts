@@ -8,6 +8,8 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SettingsComponent } from './components/settings/settings.component';
 import { FormsModule } from '@angular/forms';
+import { SharedService } from './services/shared.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    Ng2SearchPipeModule,
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

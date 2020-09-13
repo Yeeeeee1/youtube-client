@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ISearchItems } from '../../models/search-result.model';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-search-results',
@@ -7,6 +8,8 @@ import { ISearchItems } from '../../models/search-result.model';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
+  searchTerm: string;
+
   models: ISearchItems[] = [
     {
       kind: 'youtube#video',
@@ -767,7 +770,12 @@ export class SearchResultsComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  bool: boolean;
+
+  constructor(private share: SharedService) {
+    this.share.bool.subscribe((cnt) => (this.bool = cnt));
+    this.share.filter.subscribe((cnt) => (this.searchTerm = cnt));
+  }
 
   ngOnInit(): void {}
 }

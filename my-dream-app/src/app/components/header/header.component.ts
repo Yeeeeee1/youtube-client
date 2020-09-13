@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -6,23 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  getApi(): void {
-    const wrapper = document.getElementsByClassName(
-      'wrapper'
-    ) as HTMLCollectionOf<HTMLElement>;
-    wrapper[0].style.display = 'flex';
-  }
+  bool: boolean;
+  show: boolean;
 
-  showSettings(): void {
-    const settings = document.getElementById('settings-wrapper');
-    if (settings.style.display === 'none' || settings.style.display === '') {
-      settings.style.display = 'flex';
+  getApi(): void {
+    if (
+      (<HTMLInputElement>document.querySelector('.header__search-input'))
+        .value != ''
+    ) {
+      this.share.doClick();
     } else {
-      settings.style.display = 'none';
+      alert('Введите запрос!');
     }
   }
 
-  constructor() {}
+  showSettings(): void {
+    this.share.showSetting();
+  }
+
+  constructor(private share: SharedService) {
+    this.share.bool.subscribe((cnt) => (this.bool = cnt));
+    this.share.show.subscribe((cnt) => (this.show = cnt));
+  }
 
   ngOnInit(): void {}
 }
