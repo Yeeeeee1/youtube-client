@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ISearchItems } from '../../models/search-result.model';
 import { SharedService } from '../../services/shared.service';
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { ISearchItems } from '../models/search-result.model';
 
 @Injectable({
   providedIn: 'root',
