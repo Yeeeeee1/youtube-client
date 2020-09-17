@@ -1,0 +1,70 @@
+.blueClass {
+  border-bottom: 3px solid #2f80ed;
+}
+
+.greenClass {
+  border-bottom: 3px solid #27ae60;
+}
+
+.redClass {
+  border-bottom: 3px solid #eb5757;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 65%;
+  margin: auto;
+  &__preview {
+    width: 223px;
+    height: 123px;
+    margin-top: 20px;
+    color: #4f4f4f;
+  }
+  &__card {
+    margin-top: 50px;
+    width: 263px;
+    height: 367px;
+    background-color: #e5e5e5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    margin-left: 20px;
+  }
+  &__title {
+    width: 90%;
+    text-align: center;
+  }
+  &__info {
+    margin-top: 21px;
+  }
+  &__picture-info {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  &__more {
+    position: absolute;
+    width: 120px;
+    height: 32px;
+    background: #2f80ed;
+    border-radius: 5px;
+    outline: 0;
+    border: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 5px #2f80ed;
+    margin-top: 300px;
+  }
+  &__statistics {
+    margin-left: 5px;
+  }
+  &__line {
+    width: 100%;
+    margin-top: auto;
+    height: 5px;
+    background: #27ae60;
+    border-radius: 0px 0px 5px 5px;
+  }
+}

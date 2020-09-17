@@ -1,0 +1,13 @@
+<div class="settings-wrapper" id="settings-wrapper" *ngIf="bool">
+  <p class="settings-wrapper__sorting-name">Sorting by:</p>
+  <p class="settings-wrapper__date">date</p>
+  <p class="settings-wrapper__count-of-views">count of views</p>
+  <p class="settings-wrapper__by-word-or-sentance">by word or sentance</p>
+  <input
+    class="settings-wrapper__settings-search-input"
+    id="searchInputFilter"
+    #input
+    (input)="onKey(input.value)"
+    [(ngModel)]="searchTerm"
+  />
+</div>
