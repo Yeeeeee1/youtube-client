@@ -13,7 +13,7 @@ interface ISnippetModel {
   description: string;
   thumbnails: IThumbnailsModel;
   channelTitle: string;
-  tags: String[];
+  tags: string[];
   categoryId: string;
   liveBroadcastContent: string;
   localized: ILocalizedModel;

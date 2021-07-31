@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './settings-component.component.html',
   styleUrls: ['./settings-component.component.scss'],
 })
-export class SettingsComponentComponent {
-  constructor() {}
-}
+export class SettingsComponentComponent {}
