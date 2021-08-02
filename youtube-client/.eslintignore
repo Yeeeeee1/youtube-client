@@ -1,0 +1,7 @@
+node_modules
+dist
+
+src/main.ts
+src/polyfills.ts
+src/index.html
+src/test.ts
