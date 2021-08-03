@@ -8,6 +8,7 @@ import { SettingsComponentComponent } from './header/settings-component/settings
 import { FooterComponentComponent } from './footer/footer-component/footer-component.component';
 import { SearchItemComponent } from './search/search-results/search-item/search-item.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
+import { HighlightBottomDirective } from './search/search-results/directives/highlight-bottom.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SearchResultsComponent } from './search/search-results/search-results.c
     FooterComponentComponent,
     SearchItemComponent,
     SearchResultsComponent,
+    HighlightBottomDirective,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

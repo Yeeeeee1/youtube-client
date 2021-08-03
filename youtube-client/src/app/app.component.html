@@ -1,0 +1,8 @@
+<app-header-component
+  (clickSettingsBtnEvent)="openSettings($event)"
+></app-header-component>
+<app-settings-component
+  [isSettingsOpen]="isSettingsOpen"
+></app-settings-component>
+<app-search-results></app-search-results>
+<app-footer-component></app-footer-component>
