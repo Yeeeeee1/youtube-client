@@ -1,3 +1,6 @@
 <main>
-  <app-search-item *ngFor="let element of [1, 2, 3]"></app-search-item>
+  <app-search-item
+    *ngFor="let mockObj of mockData.items"
+    [appHighlightBottom]="mockObj.snippet.publishedAt"
+  ></app-search-item>
 </main>
