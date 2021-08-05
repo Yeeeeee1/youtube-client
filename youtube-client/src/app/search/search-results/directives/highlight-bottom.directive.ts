@@ -21,7 +21,8 @@ export class HighlightBottomDirective {
       }
       console.log(diff / 1000 / 60 / 60 / 24);
     }
-    this.el.nativeElement.style.borderBottom = ' 2px solid ' + color;
+    console.log(this.el);
+    this.el.nativeElement.style.borderBottom = ' 5px solid ' + color;
   }
 
   constructor(private el: ElementRef) {}

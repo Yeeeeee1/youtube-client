@@ -1,6 +1,25 @@
 <main>
-  <app-search-item
+  <div
+    class="card"
     *ngFor="let mockObj of mockData.items"
     [appHighlightBottom]="mockObj.snippet.publishedAt"
-  ></app-search-item>
+  >
+    <img
+      [src]="mockObj.snippet.thumbnails.medium.url"
+      class="card__video-poster"
+      alt="video-poster"
+    />
+    <div class="card__video-characteristics">
+      <img src="../../../assets/images/viewed.png" alt="view-icon" />
+      <p>{{ mockObj.statistics.viewCount }}</p>
+      <img src="../../../assets/images/liked.png" alt="like-icon" />
+      <p>{{ mockObj.statistics.likeCount }}</p>
+      <img src="../../../assets/images/dislike.png" alt="dislike-icon" />
+      <p>{{ mockObj.statistics.dislikeCount }}</p>
+      <img src="../../../assets/images/comments.png" alt="comment-count" />
+      <p>{{ mockObj.statistics.commentCount }}</p>
+    </div>
+    <h2 class="card__title">{{ mockObj.snippet.title }}</h2>
+    <button class="card__btn-more">more...</button>
+  </div>
 </main>
