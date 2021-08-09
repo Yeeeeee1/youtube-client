@@ -8,8 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'youtube-client';
   isSettingsOpen = false;
+  isShowResults = false;
 
   openSettings(value: boolean): void {
     this.isSettingsOpen = value;
+  }
+
+  showResults(value: boolean): void {
+    this.isShowResults = value;
   }
 }

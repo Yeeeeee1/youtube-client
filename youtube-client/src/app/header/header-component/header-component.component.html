@@ -12,7 +12,9 @@
       placeholder="What are you want to find out?"
       class="search-wrapper__search-video"
     />
-    <button class="search-wrapper__search-btn">search</button>
+    <button class="search-wrapper__search-btn" (click)="showResults()">
+      search
+    </button>
     <button class="search-wrapper__setting-button" (click)="openSettings()">
       <img
         src="../../../assets/images/settings-icon.png"

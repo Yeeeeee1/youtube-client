@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ISearchResponseModel } from '../models/search-response.model';
 
 @Component({
@@ -7,6 +7,7 @@ import { ISearchResponseModel } from '../models/search-response.model';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
+  @Input() isShowResults = false;
   mockData: ISearchResponseModel = {
     kind: 'youtube#videoListResponse',
     etag: '"Fznwjl6JEQdo1MGvHOGaz_YanRU/Cmodw7c5XPTM8Yg3kMXelihxek4"',
