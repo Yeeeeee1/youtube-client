@@ -6,7 +6,7 @@ export interface ISearchItemModel {
   statistics: IStatisticsModel;
 }
 
-interface ISnippetModel {
+export interface ISnippetModel {
   publishedAt: string;
   channelId: string;
   title: string;
@@ -39,7 +39,7 @@ interface ISizeModel {
   height: number;
 }
 
-interface IStatisticsModel {
+export interface IStatisticsModel {
   viewCount: string;
   likeCount: string;
   dislikeCount: string;

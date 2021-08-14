@@ -5,11 +5,11 @@ import { Directive, ElementRef, Input } from '@angular/core';
 })
 export class HighlightBottomDirective {
   @Input() set appHighlightBottom(publishedAt: string) {
-    let color;
+    let color = '';
     if (publishedAt) {
-      let publishDate: any = new Date(publishedAt);
-      let nowDate: any = new Date();
-      let diff = nowDate - publishDate;
+      const publishDate: number = new Date(publishedAt).getTime();
+      const nowDate: number = new Date().getTime();
+      const diff = nowDate - publishDate;
       if (diff < 30) {
         color = 'green';
       }
@@ -19,11 +19,9 @@ export class HighlightBottomDirective {
       if (publishDate > 180) {
         color = 'red';
       }
-      console.log(diff / 1000 / 60 / 60 / 24);
     }
-    console.log(this.el);
-    this.el.nativeElement.style.borderBottom = ' 5px solid ' + color;
+    this.el.nativeElement.style.borderBottom = `5px solid ${color}`;
   }
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef<HTMLDivElement>) {}
 }

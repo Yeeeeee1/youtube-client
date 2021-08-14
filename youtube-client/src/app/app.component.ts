@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ISortModel } from './header/settings-component/models/sortModel';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,8 @@ export class AppComponent {
   title = 'youtube-client';
   isSettingsOpen = false;
   isShowResults = false;
+  sortObj: any = { term: '', flag: false };
+  word = '';
 
   openSettings(value: boolean): void {
     this.isSettingsOpen = value;
@@ -16,5 +19,13 @@ export class AppComponent {
 
   showResults(value: boolean): void {
     this.isShowResults = value;
+  }
+
+  sort(value: ISortModel): void {
+    this.sortObj = value;
+  }
+
+  sortByWord(value: string): void {
+    this.word = value;
   }
 }
