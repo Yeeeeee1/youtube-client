@@ -8,12 +8,12 @@ import { ISearchResponseModel } from '../models/search-response.model';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnChanges {
-  @Input() sortObj: ISortModel = { term: 'publishedAt', flag: true };
+  @Input() sortObj: ISortModel = { term: 'publishedAt', mode: 1 };
   @Input() isShowResults = false;
   @Input() word = '';
 
   term = '';
-  flag = false;
+  mode = -1;
   mockData: ISearchResponseModel = {
     kind: 'youtube#videoListResponse',
     etag: '"Fznwjl6JEQdo1MGvHOGaz_YanRU/Cmodw7c5XPTM8Yg3kMXelihxek4"',
@@ -781,6 +781,6 @@ export class SearchResultsComponent implements OnChanges {
 
   ngOnChanges(): void {
     this.term = this.sortObj.term;
-    this.flag = this.sortObj.flag;
+    this.mode = this.sortObj.mode;
   }
 }

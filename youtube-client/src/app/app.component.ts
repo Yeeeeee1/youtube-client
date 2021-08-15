@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'youtube-client';
   isSettingsOpen = false;
   isShowResults = false;
-  sortObj: any = { term: '', flag: false };
+  sortObj: any = { term: '', mode: -1 };
   word = '';
 
   openSettings(value: boolean): void {

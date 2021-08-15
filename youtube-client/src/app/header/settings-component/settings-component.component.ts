@@ -14,18 +14,18 @@ export class SettingsComponentComponent {
 
   @Output() changeSortByWordEvent = new EventEmitter<string>();
 
-  flag = false;
+  mode = -1;
 
   word = '';
 
   sortByDate(): void {
-    this.flag = !this.flag;
-    this.clickSortEvent.emit({ term: 'publishedAt', flag: this.flag });
+    this.mode = -this.mode;
+    this.clickSortEvent.emit({ term: 'publishedAt', mode: this.mode });
   }
 
   sortByViews(): void {
-    this.flag = !this.flag;
-    this.clickSortEvent.emit({ term: 'viewCount', flag: this.flag });
+    this.mode = -this.mode;
+    this.clickSortEvent.emit({ term: 'viewCount', mode: this.mode });
   }
 
   sortByWord(): void {

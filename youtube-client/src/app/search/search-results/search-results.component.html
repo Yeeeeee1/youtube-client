@@ -1,7 +1,7 @@
 <main *ngIf="isShowResults">
   <div
     class="card"
-    *ngFor="let mockObj of mockData.items | orderBy: term:flag | sortByWord: word"
+    *ngFor="let mockObj of mockData.items | orderBy: term:mode | sortByWord: word"
     [appHighlightBottom]="mockObj.snippet.publishedAt"
   >
     <img [src]="mockObj.snippet.thumbnails.medium.url" class="card__video-poster" alt="video-poster" />
