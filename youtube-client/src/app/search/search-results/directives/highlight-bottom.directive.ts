@@ -14,7 +14,6 @@ export class HighlightBottomDirective {
       const publishDate: number = new Date(publishedAt).getTime();
       const nowDate: number = new Date().getTime();
       const diff = Math.round((nowDate - publishDate) / MSEC_ONE_DAY);
-      console.log(diff);
       if (diff < ONE_MONTH_DAYS) {
         color = 'green';
       }
