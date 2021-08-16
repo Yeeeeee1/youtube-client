@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ISearchItemModel } from '../../models/search-item.model';
+import { ISearchItemModel } from '../models/search-item.model';
 
 @Pipe({
   name: 'orderBy',

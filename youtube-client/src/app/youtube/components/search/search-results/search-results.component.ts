@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { ISortModel } from 'src/app/header/settings-component/models/sortModel';
+import { ISortModel } from '../../../../core/components/header/settings-component/models/sortModel';
 import { mockVideoData } from 'src/assets/data/mockData';
-import { ISearchResponseModel } from '../models/search-response.model';
+import { ISearchResponseModel } from '../../../models/search-response.model';
 
 @Component({
   selector: 'app-search-results',

@@ -1,4 +1,4 @@
-import { ISearchResponseModel } from 'src/app/search/models/search-response.model';
+import { ISearchResponseModel } from 'src/app/youtube/models/search-response.model';
 
 export const mockVideoData: ISearchResponseModel = {
   kind: 'youtube#videoListResponse',

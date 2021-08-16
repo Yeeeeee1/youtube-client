@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ISortModel } from './header/settings-component/models/sortModel';
+import { ISortModel } from './core/components/header/settings-component/models/sortModel';
 
 @Component({
   selector: 'app-root',
