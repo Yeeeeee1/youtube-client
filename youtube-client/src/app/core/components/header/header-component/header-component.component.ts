@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ISearchResponseModel } from 'src/app/youtube/models/search-response.model';
+import { YoutubeService } from 'src/app/youtube/services/youtube.service';
+import { YoutubeModule } from 'src/app/youtube/youtube.module';
 
 @Component({
   selector: 'app-header-component',
@@ -7,9 +10,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponentComponent {
   @Output() clickSettingsBtnEvent = new EventEmitter<boolean>();
-  @Output() clickSearchBtnEvent = new EventEmitter<boolean>();
   isSettingsOpen = false;
   isShowResult = false;
+
+  constructor(private youtubeService: YoutubeService) {}
 
   openSettings(): void {
     this.isSettingsOpen = !this.isSettingsOpen;
@@ -17,7 +21,7 @@ export class HeaderComponentComponent {
   }
 
   showResults(): void {
-    this.isShowResult = true;
-    this.clickSearchBtnEvent.emit(this.isShowResult);
+    const videoData = this.youtubeService.getData();
+    this.youtubeService.showResults(videoData);
   }
 }

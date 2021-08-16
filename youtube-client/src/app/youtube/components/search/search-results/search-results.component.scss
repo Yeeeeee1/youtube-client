@@ -57,6 +57,10 @@ main {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 51px;
-    filter: drop-shadow(2px 0px 4px #2f80ed);
+    transition: 0.5s;
+
+    &:hover {
+      filter: drop-shadow(2px 0px 4px #2f80ed);
+    }
   }
 }

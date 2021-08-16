@@ -1,8 +1,4 @@
-<app-header-component (clickSettingsBtnEvent)="openSettings($event)" (clickSearchBtnEvent)="showResults($event)"></app-header-component>
-<app-settings-component
-  [isSettingsOpen]="isSettingsOpen"
-  (clickSortEvent)="sort($event)"
-  (changeSortByWordEvent)="sortByWord($event)"
-></app-settings-component>
-<app-search-results [word]="word" [sortObj]="sortObj" [isShowResults]="isShowResults"></app-search-results>
+<app-header-component (clickSettingsBtnEvent)="openSettings($event)"></app-header-component>
+<app-settings-component [isSettingsOpen]="isSettingsOpen"></app-settings-component>
+<router-outlet></router-outlet>
 <app-footer-component></app-footer-component>

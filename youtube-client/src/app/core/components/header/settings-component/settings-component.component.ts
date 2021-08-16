@@ -1,5 +1,6 @@
 // eslint-disable-next-line object-curly-newline
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { SortService } from 'src/app/youtube/services/sort.service';
 import { ISortModel } from './models/sortModel';
 
 @Component({
@@ -10,25 +11,23 @@ import { ISortModel } from './models/sortModel';
 export class SettingsComponentComponent {
   @Input() isSettingsOpen = false;
 
-  @Output() clickSortEvent = new EventEmitter<ISortModel>();
-
-  @Output() changeSortByWordEvent = new EventEmitter<string>();
-
   mode = -1;
 
   word = '';
 
+  constructor(private sortService: SortService) {}
+
   sortByDate(): void {
     this.mode = -this.mode;
-    this.clickSortEvent.emit({ term: 'publishedAt', mode: this.mode });
+    this.sortService.addSortObj({ term: 'publishedAt', mode: this.mode });
   }
 
   sortByViews(): void {
     this.mode = -this.mode;
-    this.clickSortEvent.emit({ term: 'viewCount', mode: this.mode });
+    this.sortService.addSortObj({ term: 'viewCount', mode: this.mode });
   }
 
   sortByWord(): void {
-    this.changeSortByWordEvent.emit(this.word);
+    this.sortService.addSortWord(this.word);
   }
 }

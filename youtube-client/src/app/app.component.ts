@@ -9,23 +9,8 @@ import { ISortModel } from './core/components/header/settings-component/models/s
 export class AppComponent {
   title = 'youtube-client';
   isSettingsOpen = false;
-  isShowResults = false;
-  sortObj: any = { term: '', mode: -1 };
-  word = '';
 
   openSettings(value: boolean): void {
     this.isSettingsOpen = value;
-  }
-
-  showResults(value: boolean): void {
-    this.isShowResults = value;
-  }
-
-  sort(value: ISortModel): void {
-    this.sortObj = value;
-  }
-
-  sortByWord(value: string): void {
-    this.word = value;
   }
 }

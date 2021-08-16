@@ -5,9 +5,10 @@ import { FooterComponentComponent } from './components/footer/footer-component/f
 import { SettingsComponentComponent } from './components/header/settings-component/settings-component.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
-  declarations: [HeaderComponentComponent, FooterComponentComponent, SettingsComponentComponent],
+  declarations: [HeaderComponentComponent, FooterComponentComponent, SettingsComponentComponent, NotFoundComponent],
   imports: [CommonModule, FormsModule, BrowserModule],
   exports: [HeaderComponentComponent, FooterComponentComponent, SettingsComponentComponent],
 })
