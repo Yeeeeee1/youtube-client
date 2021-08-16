@@ -7,16 +7,21 @@ export class HighlightBottomDirective {
   @Input() set appHighlightBottom(publishedAt: string) {
     let color = '';
     if (publishedAt) {
+      const MSEC_ONE_DAY = 86400000;
+      const ONE_MONTH_DAYS = 30;
+      const ONE_WEEK_DAYS = 7;
+      const HALF_YEAR_DAYS = 180;
       const publishDate: number = new Date(publishedAt).getTime();
       const nowDate: number = new Date().getTime();
-      const diff = nowDate - publishDate;
-      if (diff < 30) {
+      const diff = Math.round((nowDate - publishDate) / MSEC_ONE_DAY);
+      console.log(diff);
+      if (diff < ONE_MONTH_DAYS) {
         color = 'green';
       }
-      if (publishDate < 7) {
+      if (publishDate < ONE_WEEK_DAYS) {
         color = 'blue';
       }
-      if (publishDate > 180) {
+      if (publishDate > HALF_YEAR_DAYS) {
         color = 'red';
       }
     }
