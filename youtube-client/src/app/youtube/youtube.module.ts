@@ -11,8 +11,8 @@ import { DetailedInfoCardComponent } from './components/detailed-info-card/detai
   declarations: [SearchResultsComponent, HighlightBottomDirective, OrderByPipe, SortByWordPipe, DetailedInfoCardComponent],
   imports: [
     RouterModule.forChild([
-      { path: '', component: SearchResultsComponent },
-      { path: ':id', component: DetailedInfoCardComponent },
+      { path: 'main', component: SearchResultsComponent },
+      { path: 'main/:id', component: DetailedInfoCardComponent },
     ]),
     CommonModule,
   ],

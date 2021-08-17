@@ -16,6 +16,6 @@
       <p>{{ videoObj.statistics.commentCount }}</p>
     </div>
     <h2 class="card__title">{{ videoObj.snippet.title }}</h2>
-    <button class="card__btn-more" [routerLink]="['/' + videoObj.id]">more...</button>
+    <button class="card__btn-more" [routerLink]="['/main/' + videoObj.id]">more...</button>
   </div>
 </main>
