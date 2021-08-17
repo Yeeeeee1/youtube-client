@@ -15,4 +15,5 @@
     <a [routerLink]="['auth']" *ngIf="!isLogin">Auth</a>
     <button *ngIf="isLogin" (click)="exitUser()">Exit</button>
   </div>
+  <app-settings-component *ngIf="isSettingsOpen"></app-settings-component>
 </header>

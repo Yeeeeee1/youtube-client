@@ -9,7 +9,6 @@ import { YoutubeModule } from 'src/app/youtube/youtube.module';
   styleUrls: ['./header-component.component.scss'],
 })
 export class HeaderComponentComponent implements OnInit {
-  @Output() clickSettingsBtnEvent = new EventEmitter<boolean>();
   isSettingsOpen = false;
   isShowResult = false;
   isLogin = false;
@@ -25,7 +24,6 @@ export class HeaderComponentComponent implements OnInit {
 
   openSettings(): void {
     this.isSettingsOpen = !this.isSettingsOpen;
-    this.clickSettingsBtnEvent.emit(this.isSettingsOpen);
   }
 
   showResults(): void {

@@ -16,6 +16,6 @@ export class AuthService {
 
   signUp(login: string, password: string): void {
     localStorage.setItem('token', 'abc');
-    this.location.replaceState('');
+    this.location.replaceState('main');
   }
 }

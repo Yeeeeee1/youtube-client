@@ -9,8 +9,6 @@ import { ISortModel } from './models/sortModel';
   styleUrls: ['./settings-component.component.scss'],
 })
 export class SettingsComponentComponent {
-  @Input() isSettingsOpen = false;
-
   mode = -1;
 
   word = '';
