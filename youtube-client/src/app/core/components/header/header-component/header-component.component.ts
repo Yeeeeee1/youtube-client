@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { ISearchResponseModel } from 'src/app/youtube/models/search-response.model';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 import { YoutubeModule } from 'src/app/youtube/youtube.module';
@@ -13,9 +15,10 @@ export class HeaderComponentComponent implements OnInit {
   isShowResult = false;
   isLogin = false;
 
-  constructor(private youtubeService: YoutubeService) {}
+  constructor(private youtubeService: YoutubeService, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
+    this.authService.authEvent.subscribe(() => (this.isLogin = true));
     const token = localStorage.getItem('token');
     if (token) {
       this.isLogin = true;
@@ -34,5 +37,6 @@ export class HeaderComponentComponent implements OnInit {
   exitUser(): void {
     localStorage.removeItem('token');
     this.isLogin = false;
+    this.router.navigate(['auth']);
   }
 }

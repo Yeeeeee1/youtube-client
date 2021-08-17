@@ -1,11 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private location: Location) {}
+  authEvent: EventEmitter<string> = new EventEmitter();
+  constructor(private router: Router) {}
+
   isLogged(): boolean {
     if (localStorage.getItem('token')) {
       return true;
@@ -16,6 +19,7 @@ export class AuthService {
 
   signUp(login: string, password: string): void {
     localStorage.setItem('token', 'abc');
-    this.location.replaceState('main');
+    this.authEvent.emit('abc');
+    this.router.navigate(['main']);
   }
 }
