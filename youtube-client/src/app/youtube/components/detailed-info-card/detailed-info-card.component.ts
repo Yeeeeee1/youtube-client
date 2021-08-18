@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { mockVideoData } from 'src/assets/data/mockData';
+import { ISearchItemModel } from '../../models/search-item.model';
+import { ISearchResponseModel } from '../../models/search-response.model';
 import { YoutubeService } from '../../services/youtube.service';
 
 @Component({
@@ -10,7 +13,7 @@ import { YoutubeService } from '../../services/youtube.service';
 export class DetailedInfoCardComponent implements OnInit {
   constructor(private route: ActivatedRoute, private youtubeService: YoutubeService) {}
 
-  data: any;
+  data: ISearchItemModel | undefined = mockVideoData.items[0];
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {

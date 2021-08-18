@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="isSearch">
   <div
     class="card"
     *ngFor="let videoObj of videoData.items | orderBy: term:mode | sortByWord: word"

@@ -18,13 +18,17 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   word = '';
   term = '';
   mode = -1;
+  isSearch = false;
   videoData: ISearchResponseModel = mockVideoData;
   clickSearchEventSub: Subscription | null = new Subscription();
   changeSortObjEventSub: Subscription | null = new Subscription();
   changeSortWordEventSub: Subscription | null = new Subscription();
 
   ngOnInit(): void {
-    this.youtubeService.clickSearchEvent.subscribe((data: ISearchResponseModel) => (this.videoData = data));
+    this.youtubeService.clickSearchEvent.subscribe((data: ISearchResponseModel) => {
+      this.videoData = data;
+      this.isSearch = true;
+    });
     this.sortService.changeSortObjEvent.subscribe((data: ISortModel) => {
       this.sortObj = data;
       this.term = this.sortObj.term;
