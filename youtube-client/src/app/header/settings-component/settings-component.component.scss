@@ -1,12 +1,14 @@
+@import '../../../mixins.scss';
+
 .settings-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
-  background-color: #e5e5e5;
+  background-color: $settings-background-color;
 
   &__text {
-    color: #929292;
+    color: $settings-text-color;
   }
 
   &__sorting-buttons-wrapper {
@@ -16,7 +18,7 @@
 
     &__sorting-btn {
       cursor: pointer;
-      color: #2f80ed;
+      color: $btn-text-color;
       margin-left: 21px;
       text-decoration: underline;
 
