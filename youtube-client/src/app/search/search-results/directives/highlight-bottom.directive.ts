@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appHighlightBottom]',
@@ -24,8 +24,8 @@ export class HighlightBottomDirective {
         color = 'red';
       }
     }
-    this.el.nativeElement.style.borderBottom = `5px solid ${color}`;
+    this.renderer.setStyle(this.el.nativeElement, 'border-bottom', `5px solid ${color}`);
   }
 
-  constructor(private el: ElementRef<HTMLDivElement>) {}
+  constructor(private renderer: Renderer2, private el: ElementRef<HTMLDivElement>) {}
 }
