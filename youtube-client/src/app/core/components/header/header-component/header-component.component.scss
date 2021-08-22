@@ -1,6 +1,8 @@
+@import '../../../../../mixins.scss';
+
 header {
   width: 100%;
-  background-color: #e5e5e5;
+  background-color: $header-background-color;
 }
 
 .search-wrapper {
@@ -18,22 +20,22 @@ header {
     width: 396px;
     height: 24px;
     border: none;
-    background-color: #efefef;
+    background-color: $input-background-color;
   }
 
   &__search-btn {
     width: 80px;
     height: 24px;
     border: none;
-    color: white;
+    color: $btn-text-color;
     cursor: pointer;
     transition: 1s;
 
-    background-color: #2f80ed;
+    background-color: $btn-background-color;
     border-radius: 0px 4px 4px 0px;
 
     &:hover {
-      box-shadow: 1px 0px 5px 0px #2f80ed;
+      box-shadow: 1px 0px 5px 0px $btn-shadow-color;
     }
   }
 
@@ -43,6 +45,6 @@ header {
     cursor: pointer;
     margin-left: 10px;
     border-radius: 5px;
-    background-color: #2f80ed;
+    background-color: $btn-background-color;
   }
 }
