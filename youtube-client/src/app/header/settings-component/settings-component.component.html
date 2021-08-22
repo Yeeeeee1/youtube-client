@@ -1,1 +1,9 @@
-<p>settings-component works!</p>
+<div *ngIf="isSettingsOpen" class="settings-wrapper">
+  <p class="settings-wrapper__text">Sorting by:</p>
+  <div class="settings-wrapper__sorting-buttons-wrapper">
+    <p class="settings-wrapper__sorting-buttons-wrapper__sorting-btn" (click)="sortByDate()">date</p>
+    <p class="settings-wrapper__sorting-buttons-wrapper__sorting-btn" (click)="sortByViews()">count of views</p>
+    <p class="settings-wrapper__sorting-buttons-wrapper__sorting-btn">by word sentence</p>
+  </div>
+  <input type="search" name="search-sort" id="searchSort" class="settings-wrapper__search-sort" [(ngModel)]="word" (input)="sortByWord()" />
+</div>
