@@ -6,6 +6,6 @@ import { ISearchItemModel } from '../../models/search-item.model';
 })
 export class SortByWordPipe implements PipeTransform {
   transform(mockData: ISearchItemModel[], word: string): ISearchItemModel[] {
-    return mockData.sort((value: ISearchItemModel) => (value.snippet.title.includes(word) ? -1 : 1));
+    return mockData.filter((value: ISearchItemModel) => value.snippet.title.includes(word));
   }
 }
