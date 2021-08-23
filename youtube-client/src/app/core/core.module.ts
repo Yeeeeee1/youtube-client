@@ -7,10 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RouterModule } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [HeaderComponentComponent, FooterComponentComponent, SettingsComponentComponent, NotFoundComponent],
-  imports: [CommonModule, FormsModule, BrowserModule, RouterModule],
+  imports: [CommonModule, FormsModule, BrowserModule, RouterModule, HttpClientModule],
   exports: [HeaderComponentComponent, FooterComponentComponent, SettingsComponentComponent],
 })
 export class CoreModule {}

@@ -30,8 +30,7 @@ export class HeaderComponentComponent implements OnInit {
   }
 
   showResults(): void {
-    const videoData = this.youtubeService.getData();
-    this.youtubeService.showResults(videoData);
+    this.youtubeService.getData().subscribe((data) => this.youtubeService.showResults(data));
   }
 
   exitUser(): void {

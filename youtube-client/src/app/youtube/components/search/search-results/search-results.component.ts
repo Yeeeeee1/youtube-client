@@ -27,6 +27,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.youtubeService.clickSearchEvent.subscribe((data: ISearchResponseModel) => {
       this.videoData = data;
+      console.log(this.videoData);
       this.isSearch = true;
     });
     this.sortService.changeSortObjEvent.subscribe((data: ISortModel) => {

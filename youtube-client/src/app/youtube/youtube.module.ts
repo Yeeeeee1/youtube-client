@@ -6,6 +6,7 @@ import { OrderByPipe } from './pipes/order-by.pipe';
 import { SortByWordPipe } from './pipes/sort-by-word.pipe';
 import { RouterModule } from '@angular/router';
 import { DetailedInfoCardComponent } from './components/detailed-info-card/detailed-info-card.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [SearchResultsComponent, HighlightBottomDirective, OrderByPipe, SortByWordPipe, DetailedInfoCardComponent],
@@ -15,6 +16,7 @@ import { DetailedInfoCardComponent } from './components/detailed-info-card/detai
       { path: 'main/:id', component: DetailedInfoCardComponent },
     ]),
     CommonModule,
+    HttpClientModule,
   ],
   exports: [SearchResultsComponent],
 })
