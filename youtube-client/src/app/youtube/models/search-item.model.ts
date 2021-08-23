@@ -1,9 +1,14 @@
 export interface ISearchItemModel {
   kind: string;
   etag: string;
-  id: string;
+  id: IIdModel;
   snippet: ISnippetModel;
   statistics: IStatisticsModel;
+}
+
+interface IIdModel {
+  videoId: string;
+  kind: string;
 }
 
 export interface ISnippetModel {

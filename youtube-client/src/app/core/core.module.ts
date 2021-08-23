@@ -11,7 +11,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [HeaderComponentComponent, FooterComponentComponent, SettingsComponentComponent, NotFoundComponent],
-  imports: [CommonModule, FormsModule, BrowserModule, RouterModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, BrowserModule, RouterModule],
   exports: [HeaderComponentComponent, FooterComponentComponent, SettingsComponentComponent],
 })
 export class CoreModule {}

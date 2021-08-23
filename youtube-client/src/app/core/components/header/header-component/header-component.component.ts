@@ -14,6 +14,7 @@ export class HeaderComponentComponent implements OnInit {
   isSettingsOpen = false;
   isShowResult = false;
   isLogin = false;
+  searchWord = '';
 
   constructor(private youtubeService: YoutubeService, private authService: AuthService, private router: Router) {}
 
@@ -30,7 +31,11 @@ export class HeaderComponentComponent implements OnInit {
   }
 
   showResults(): void {
-    this.youtubeService.getData().subscribe((data) => this.youtubeService.showResults(data));
+    if (this.searchWord.length >= 3) {
+      this.youtubeService.getData(this.searchWord).subscribe((data: ISearchResponseModel) => {
+        this.youtubeService.showResults(data);
+      });
+    }
   }
 
   exitUser(): void {
