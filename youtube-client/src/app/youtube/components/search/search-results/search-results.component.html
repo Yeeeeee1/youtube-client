@@ -7,13 +7,13 @@
     <img [src]="videoObj.snippet.thumbnails.medium.url" class="card__video-poster" alt="video-poster" />
     <div class="card__video-characteristics">
       <img src="../../../assets/images/viewed.png" alt="view-icon" />
-      <p>{{ videoObj.statistics.viewCount }}</p>
+      <p>{{ videoObj?.statistics?.viewCount }}</p>
       <img src="../../../assets/images/liked.png" alt="like-icon" />
-      <p>{{ videoObj.statistics.likeCount }}</p>
+      <p>{{ videoObj?.statistics?.likeCount }}</p>
       <img src="../../../assets/images/dislike.png" alt="dislike-icon" />
-      <p>{{ videoObj.statistics.dislikeCount }}</p>
+      <p>{{ videoObj?.statistics?.dislikeCount }}</p>
       <img src="../../../assets/images/comments.png" alt="comment-count" />
-      <p>{{ videoObj.statistics.commentCount }}</p>
+      <p>{{ videoObj?.statistics?.commentCount }}</p>
     </div>
     <h2 class="card__title">{{ videoObj.snippet.title }}</h2>
     <button class="card__btn-more" [routerLink]="['/main/' + videoObj.id.videoId]">more...</button>

@@ -7,17 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class InterceptorService {
   baseUrl = 'https://www.googleapis.com/youtube/v3';
-  apiKey = 'AIzaSyCjWXrzTf4tJ8tZMBgx6ZW4KSFdOAi1hzI';
-  constructor() {}
+  apiKey = 'AIzaSyCclLAstcCgyYb62UKGrwa1f2_-DE7KyJs';
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> | void {
-    console.log(req.url);
-    if (req.body) {
-      const paramReq = req.clone({
-        url: `${this.baseUrl}/${req.url}`,
-        setParams: { apiKey: this.apiKey },
-      });
-      return next.handle(paramReq);
-    }
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const paramReq = req.clone({
+      url: `${this.baseUrl}/${req.url}`,
+      setParams: { key: this.apiKey },
+    });
+    return next.handle(paramReq);
   }
 }

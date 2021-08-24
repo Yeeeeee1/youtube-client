@@ -13,6 +13,7 @@
     <button class="search-wrapper__setting-button" (click)="openSettings()">
       <img src="../../../assets/images/settings-icon.png" alt="settings-image" />
     </button>
+    <p>{{ login }}</p>
     <a [routerLink]="['auth']" *ngIf="!isLogin">Auth</a>
     <button *ngIf="isLogin" (click)="exitUser()">Exit</button>
   </div>

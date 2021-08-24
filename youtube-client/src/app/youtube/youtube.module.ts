@@ -17,8 +17,8 @@ import { InterceptorService } from './services/interceptor.service';
       { path: 'main/:id', component: DetailedInfoCardComponent },
     ]),
     CommonModule,
+    HttpClientModule,
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   exports: [SearchResultsComponent],
 })
 export class YoutubeModule {}

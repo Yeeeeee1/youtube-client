@@ -15,11 +15,16 @@ export class HeaderComponentComponent implements OnInit {
   isShowResult = false;
   isLogin = false;
   searchWord = '';
+  login: string | null = '';
 
   constructor(private youtubeService: YoutubeService, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.authService.authEvent.subscribe(() => (this.isLogin = true));
+    this.authService.authEvent.subscribe(() => {
+      this.login = localStorage.getItem('login');
+      this.isLogin = true;
+    });
+    this.login = localStorage.getItem('login');
     const token = localStorage.getItem('token');
     if (token) {
       this.isLogin = true;
@@ -39,6 +44,8 @@ export class HeaderComponentComponent implements OnInit {
   }
 
   exitUser(): void {
+    this.login = '';
+    localStorage.removeItem('login');
     localStorage.removeItem('token');
     this.isLogin = false;
     this.router.navigate(['auth']);

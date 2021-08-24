@@ -17,6 +17,7 @@ export class AuthService {
   }
 
   signUp(login: string, password: string): void {
+    localStorage.setItem('login', login);
     localStorage.setItem('token', 'abc');
     this.authEvent.emit('abc');
     this.router.navigate(['main']);
