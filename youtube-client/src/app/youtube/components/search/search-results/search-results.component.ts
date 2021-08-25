@@ -3,8 +3,11 @@ import { ISortModel } from '../../../../core/components/header/settings-componen
 import { mockVideoData } from 'src/assets/data/mockData';
 import { ISearchResponseModel } from '../../../models/search-response.model';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { SortService } from 'src/app/youtube/services/sort.service';
+import { Store, select } from '@ngrx/store';
+import { youtubeSelector } from 'src/app/ngrx/selectors/youtube.selector';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-results',
@@ -12,21 +15,28 @@ import { SortService } from 'src/app/youtube/services/sort.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit, OnDestroy {
-  constructor(private youtubeService: YoutubeService, private sortService: SortService) {}
+  constructor(private youtubeService: YoutubeService, private sortService: SortService, private store: Store) {}
 
   sortObj: ISortModel = { term: 'publishedAt', mode: 1 };
   word = '';
   term = '';
   mode = -1;
   isSearch = false;
-  videoData: ISearchResponseModel = mockVideoData;
+  videoData: Observable<ISearchResponseModel> = this.store.select(youtubeSelector).pipe(
+    map((data: any) => {
+      console.log(data);
+      return data;
+    })
+  );
   clickSearchEventSub: Subscription | null = new Subscription();
   changeSortObjEventSub: Subscription | null = new Subscription();
   changeSortWordEventSub: Subscription | null = new Subscription();
 
   ngOnInit(): void {
     this.youtubeService.clickSearchEvent.subscribe((data: ISearchResponseModel) => {
-      this.videoData = data;
+      console.log(data);
+      // this.videoData.subscribe((data: any) => console.log(data));
+      /* this.videoData = data; */
       this.isSearch = true;
     });
     this.sortService.changeSortObjEvent.subscribe((data: ISortModel) => {

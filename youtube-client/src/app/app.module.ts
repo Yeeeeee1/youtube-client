@@ -10,10 +10,20 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { YoutubeService } from './youtube/services/youtube.service';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { InterceptorService } from './youtube/services/interceptor.service';
+import { StoreModule } from '@ngrx/store';
+import { youtubeReducer } from './ngrx/reducers/youtube.reducer';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [CommonModule, BrowserModule, AppRoutingModule, CoreModule, SharedModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    HttpClientModule,
+    StoreModule.forRoot({ collection: youtubeReducer }),
+  ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent],
 })

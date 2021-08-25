@@ -19,8 +19,9 @@ export class YoutubeService {
       mergeMap((videos: ISearchResponseModel) => {
         videos.items.map((item: ISearchItemModel) =>
           this.getVideo(item.id.videoId).subscribe((newItem: ISearchResponseModel) => {
-            item.statistics = newItem.items[0].statistics;
-            return item;
+            // console.log(item);
+            // item.statistics = newItem.items[0].statistics;
+            return { ...item, statistics: newItem.items[0].statistics };
           })
         );
         return of(videos);

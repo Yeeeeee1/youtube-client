@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { addVideoData } from 'src/app/ngrx/actions/youtube.action';
 import { ISearchResponseModel } from 'src/app/youtube/models/search-response.model';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 import { YoutubeModule } from 'src/app/youtube/youtube.module';
@@ -17,7 +19,7 @@ export class HeaderComponentComponent implements OnInit {
   searchWord = '';
   login: string | null = '';
 
-  constructor(private youtubeService: YoutubeService, private authService: AuthService, private router: Router) {}
+  constructor(private youtubeService: YoutubeService, private authService: AuthService, private router: Router, private store: Store) {}
 
   ngOnInit(): void {
     this.authService.authEvent.subscribe(() => {
@@ -37,8 +39,9 @@ export class HeaderComponentComponent implements OnInit {
 
   showResults(): void {
     if (this.searchWord.length >= 3) {
-      this.youtubeService.getData(this.searchWord).subscribe((data: ISearchResponseModel) => {
-        this.youtubeService.showResults(data);
+      this.youtubeService.getData(this.searchWord).subscribe((videoData: ISearchResponseModel) => {
+        this.store.dispatch(addVideoData({ videoData }));
+        this.youtubeService.showResults(videoData);
       });
     }
   }
