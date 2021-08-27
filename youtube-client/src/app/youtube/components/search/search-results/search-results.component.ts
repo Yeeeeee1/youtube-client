@@ -22,17 +22,16 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   term = '';
   mode = -1;
   isSearch = false;
-  videoData: Observable<ISearchResponseModel> = this.store.select(youtubeSelector).pipe(
-    map((data: any) => {
-      console.log(data);
-      return data;
-    })
-  );
+  videoData: ISearchResponseModel = mockVideoData;
   clickSearchEventSub: Subscription | null = new Subscription();
   changeSortObjEventSub: Subscription | null = new Subscription();
   changeSortWordEventSub: Subscription | null = new Subscription();
 
   ngOnInit(): void {
+    this.store.select<ISearchResponseModel>(youtubeSelector).subscribe((data: ISearchResponseModel) => {
+      this.videoData = data;
+      console.log(data);
+    });
     this.youtubeService.clickSearchEvent.subscribe((data: ISearchResponseModel) => {
       console.log(data);
       // this.videoData.subscribe((data: any) => console.log(data));
