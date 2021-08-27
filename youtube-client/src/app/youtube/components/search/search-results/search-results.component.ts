@@ -8,6 +8,7 @@ import { SortService } from 'src/app/youtube/services/sort.service';
 import { Store, select } from '@ngrx/store';
 import { youtubeSelector } from 'src/app/ngrx/selectors/youtube.selector';
 import { map } from 'rxjs/operators';
+import { ISearchItemModel } from 'src/app/youtube/models/search-item.model';
 
 @Component({
   selector: 'app-search-results',
@@ -22,18 +23,18 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   term = '';
   mode = -1;
   isSearch = false;
-  videoData: ISearchResponseModel = mockVideoData;
+  videoData: ISearchItemModel[] = mockVideoData.items;
   clickSearchEventSub: Subscription | null = new Subscription();
   changeSortObjEventSub: Subscription | null = new Subscription();
   changeSortWordEventSub: Subscription | null = new Subscription();
 
   ngOnInit(): void {
-    this.store.select<ISearchResponseModel>(youtubeSelector).subscribe((data: ISearchResponseModel) => {
+    this.store.select<ISearchItemModel[]>(youtubeSelector).subscribe((data: ISearchItemModel[]) => {
       this.videoData = data;
-      console.log(data);
+      console.log('1111', data);
     });
     this.youtubeService.clickSearchEvent.subscribe((data: ISearchResponseModel) => {
-      console.log(data);
+      // console.log(data);
       // this.videoData.subscribe((data: any) => console.log(data));
       /* this.videoData = data; */
       this.isSearch = true;
