@@ -6,12 +6,12 @@ import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 import { actionTypes } from '../enums/actionsTypes';
 
 @Injectable()
-export class MovieEffects {
+export class YoutubeEffects {
   addVideoData$ = createEffect(() =>
     this.actions$.pipe(
       ofType(actionTypes.addVideoData),
       mergeMap(() =>
-        this.moviesService.getData('asa').pipe(
+        this.youtubeService.getData('asa').pipe(
           map((movies) => ({ type: '[Movies API] Movies Loaded Success', payload: movies })),
           catchError(() => of({ type: '[Movies API] Movies Loaded Error' }))
         )
@@ -19,5 +19,5 @@ export class MovieEffects {
     )
   );
 
-  constructor(private actions$: Actions, private moviesService: YoutubeService) {}
+  constructor(private actions$: Actions, private youtubeService: YoutubeService) {}
 }
