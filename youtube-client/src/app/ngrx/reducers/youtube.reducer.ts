@@ -1,18 +1,19 @@
 import { createReducer, on } from '@ngrx/store';
+import { ISearchItemModel } from 'src/app/youtube/models/search-item.model';
 import { ISearchResponseModel } from 'src/app/youtube/models/search-response.model';
 import { mockVideoData } from 'src/assets/data/mockData';
 import { addVideoData } from '../actions/youtube.action';
 
-export const initialState: Readonly<ISearchResponseModel> = mockVideoData;
+export const initialState: { videoData: ISearchItemModel[] } = { videoData: mockVideoData.items };
 
-const _youtubeReducer = createReducer(
+export const youtubeReducer = createReducer(
   initialState,
   on(addVideoData, (state, { videoData }) => {
     console.log(videoData);
-    return { ...videoData };
+    return { ...state, videoData: [...videoData] };
   })
 );
 
-export function youtubeReducer(state: any, action: any) {
-  return _youtubeReducer(state, action);
-}
+// export function youtubeReducer(state: any, action: any) {
+//   return _youtubeReducer(state, action);
+// }

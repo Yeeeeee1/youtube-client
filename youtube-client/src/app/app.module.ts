@@ -12,6 +12,8 @@ import { AuthGuard } from './auth/guards/auth.guard';
 import { InterceptorService } from './youtube/services/interceptor.service';
 import { StoreModule } from '@ngrx/store';
 import { youtubeReducer } from './ngrx/reducers/youtube.reducer';
+import { AppState } from './ngrx/app.state';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +24,20 @@ import { youtubeReducer } from './ngrx/reducers/youtube.reducer';
     CoreModule,
     SharedModule,
     HttpClientModule,
-    StoreModule.forRoot({ collection: youtubeReducer }),
+    StoreModule.forRoot(AppState,
+      {
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true,
+          strictStateSerializability: true,
+          strictActionSerializability: true,
+          strictActionWithinNgZone: true,
+          strictActionTypeUniqueness: true,
+        },
+      }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+    }),
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent],

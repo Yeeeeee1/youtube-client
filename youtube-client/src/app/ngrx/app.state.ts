@@ -1,5 +1,6 @@
-import { ISearchResponseModel } from '../youtube/models/search-response.model';
+// import { ISearchResponseModel } from '../youtube/models/search-response.model';
+import { youtubeReducer } from './reducers/youtube.reducer';
 
-export interface AppState {
-  videoData: Readonly<ISearchResponseModel>;
+export const AppState =  {
+  videoData: youtubeReducer,
 }
