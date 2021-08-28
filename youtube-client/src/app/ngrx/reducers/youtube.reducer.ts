@@ -9,7 +9,7 @@ const _youtubeReducer = createReducer(
   initialState,
   on(addVideoData, (state, { videoData }) => {
     console.log(videoData);
-    return videoData;
+    return { ...videoData };
   })
 );
 
