@@ -9,6 +9,8 @@ import { Store, select } from '@ngrx/store';
 import { youtubeSelector } from 'src/app/ngrx/selectors/youtube.selector';
 import { map } from 'rxjs/operators';
 import { ISearchItemModel } from 'src/app/youtube/models/search-item.model';
+import { ICardModel } from 'src/app/shared/models/CardModel';
+import { cardSelector } from 'src/app/ngrx/selectors/card.selector';
 
 @Component({
   selector: 'app-search-results',
@@ -24,28 +26,40 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   mode = -1;
   isSearch = false;
   videoData: ISearchItemModel[] = mockVideoData.items;
+  cardData: ICardModel[] = [{ title: '', description: '', urlToImage: '', urlToVideo: '', date: 0 }];
   clickSearchEventSub: Subscription | null = new Subscription();
   changeSortObjEventSub: Subscription | null = new Subscription();
   changeSortWordEventSub: Subscription | null = new Subscription();
+  selectVideoDataSub: Subscription | null = new Subscription();
+  selectCardDataSub: Subscription | null = new Subscription();
 
   ngOnInit(): void {
-    this.store.select<ISearchItemModel[]>(youtubeSelector).subscribe((data: ISearchItemModel[]) => {
+    this.selectCardDataSub = this.store.select<ICardModel[]>(cardSelector).subscribe((data: ICardModel[]) => (this.cardData = data));
+    this.selectVideoDataSub = this.store.select<ISearchItemModel[]>(youtubeSelector).subscribe((data: ISearchItemModel[]) => {
       this.videoData = data;
     });
-    this.youtubeService.clickSearchEvent.subscribe((data: boolean) => {
+    this.clickSearchEventSub = this.youtubeService.clickSearchEvent.subscribe((data: boolean) => {
       this.isSearch = data;
     });
-    this.sortService.changeSortObjEvent.subscribe((data: ISortModel) => {
+    this.changeSortObjEventSub = this.sortService.changeSortObjEvent.subscribe((data: ISortModel) => {
       this.sortObj = data;
       this.term = this.sortObj.term;
       this.mode = this.sortObj.mode;
     });
-    this.sortService.changeSortWordEvent.subscribe((data: string) => {
+    this.changeSortWordEventSub = this.sortService.changeSortWordEvent.subscribe((data: string) => {
       this.word = data;
     });
   }
 
   ngOnDestroy(): void {
+    if (this.selectCardDataSub) {
+      this.selectCardDataSub.unsubscribe();
+      this.selectCardDataSub = null;
+    }
+    if (this.selectVideoDataSub) {
+      this.selectVideoDataSub.unsubscribe();
+      this.selectVideoDataSub = null;
+    }
     if (this.clickSearchEventSub) {
       this.clickSearchEventSub.unsubscribe();
       this.clickSearchEventSub = null;

@@ -16,6 +16,7 @@
     <p>{{ login }}</p>
     <a [routerLink]="['auth']" *ngIf="!isLogin">Auth</a>
     <button *ngIf="isLogin" (click)="exitUser()">Exit</button>
+    <a [routerLink]="['admin']">Admin</a>
   </div>
   <app-settings-component *ngIf="isSettingsOpen"></app-settings-component>
 </header>
