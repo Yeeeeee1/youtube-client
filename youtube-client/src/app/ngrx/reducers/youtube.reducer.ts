@@ -9,11 +9,6 @@ export const initialState: { videoData: ISearchItemModel[] } = { videoData: mock
 export const youtubeReducer = createReducer(
   initialState,
   on(addVideoData, (state, { videoData }) => {
-    console.log(videoData);
     return { ...state, videoData: [...videoData] };
   })
 );
-
-// export function youtubeReducer(state: any, action: any) {
-//   return _youtubeReducer(state, action);
-// }

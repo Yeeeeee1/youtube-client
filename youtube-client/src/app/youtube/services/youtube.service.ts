@@ -10,7 +10,7 @@ import { ISearchItemModel } from '../models/search-item.model';
   providedIn: 'root',
 })
 export class YoutubeService {
-  clickSearchEvent: EventEmitter<ISearchResponseModel> = new EventEmitter();
+  clickSearchEvent: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private httpClient: HttpClient) {}
 
@@ -19,8 +19,6 @@ export class YoutubeService {
       mergeMap((videos: ISearchResponseModel) => {
         videos.items.map((item: ISearchItemModel) =>
           this.getVideo(item.id.videoId).subscribe((newItem: ISearchResponseModel) => {
-            // console.log(item);
-            // item.statistics = newItem.items[0].statistics;
             return { ...item, statistics: newItem.items[0].statistics };
           })
         );
@@ -33,7 +31,7 @@ export class YoutubeService {
     return this.httpClient.get<ISearchResponseModel>(`videos?part=snippet,statistics&id=${id}`);
   }
 
-  showResults(data: ISearchResponseModel): void {
+  showResults(data: boolean): void {
     this.clickSearchEvent.emit(data);
   }
 }
