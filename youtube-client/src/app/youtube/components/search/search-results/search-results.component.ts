@@ -27,7 +27,6 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   isSearch = false;
   videoData: ISearchItemModel[] = mockVideoData.items;
   cardData: ICardModel[] = [{ title: '', description: '', urlToImage: '', urlToVideo: '', date: 0 }];
-  clickSearchEventSub: Subscription | null = new Subscription();
   changeSortObjEventSub: Subscription | null = new Subscription();
   changeSortWordEventSub: Subscription | null = new Subscription();
   selectVideoDataSub: Subscription | null = new Subscription();
@@ -35,11 +34,11 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.selectCardDataSub = this.store.select<ICardModel[]>(cardSelector).subscribe((data: ICardModel[]) => (this.cardData = data));
+    if (this.cardData[0].title === '') {
+      this.cardData = this.cardData.slice(1, this.cardData.length);
+    }
     this.selectVideoDataSub = this.store.select<ISearchItemModel[]>(youtubeSelector).subscribe((data: ISearchItemModel[]) => {
       this.videoData = data;
-    });
-    this.clickSearchEventSub = this.youtubeService.clickSearchEvent.subscribe((data: boolean) => {
-      this.isSearch = data;
     });
     this.changeSortObjEventSub = this.sortService.changeSortObjEvent.subscribe((data: ISortModel) => {
       this.sortObj = data;
@@ -59,10 +58,6 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     if (this.selectVideoDataSub) {
       this.selectVideoDataSub.unsubscribe();
       this.selectVideoDataSub = null;
-    }
-    if (this.clickSearchEventSub) {
-      this.clickSearchEventSub.unsubscribe();
-      this.clickSearchEventSub = null;
     }
     if (this.changeSortObjEventSub) {
       this.changeSortObjEventSub.unsubscribe();

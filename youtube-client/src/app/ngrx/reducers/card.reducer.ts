@@ -13,6 +13,6 @@ export const initialState: { cardData: ICardModel[] } = {
 export const cardReducer = createReducer(
   initialState,
   on(addCard, (state, { cardData }) => {
-    return { ...state, cardData: [...cardData] };
+    return { cardData: [...state.cardData, ...cardData] };
   })
 );
