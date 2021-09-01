@@ -16,14 +16,9 @@ export class YoutubeService {
 
   getData(searchWord: string): Observable<ISearchResponseModel> {
     return this.httpClient.get<ISearchResponseModel>(`search?part=snippet&maxResults=20&q=${searchWord}&type=video`).pipe(
-      mergeMap((videos: ISearchResponseModel) => {
-        videos.items.map((item: ISearchItemModel) =>
-          this.getVideo(item.id.videoId).subscribe((newItem: ISearchResponseModel) => {
-            item.statistics = newItem.items[0].statistics;
-            return item;
-          })
-        );
-        return of(videos);
+      switchMap((videos: ISearchResponseModel) => {
+        const ids = videos.items.map((item: ISearchItemModel) => item.id.videoId).join(',');
+        return this.getVideo(ids);
       })
     );
   }
