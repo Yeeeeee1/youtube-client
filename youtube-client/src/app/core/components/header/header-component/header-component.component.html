@@ -1,0 +1,21 @@
+<header>
+  <div class="search-wrapper">
+    <img class="search-wrapper__play-icon-img" src="../../../assets/images/play-icon.png" alt="play-icon" />
+    <input
+      type="search"
+      name="search-video"
+      id="searchVideo"
+      placeholder="What are you want to find out?"
+      class="search-wrapper__search-video"
+      [(ngModel)]="searchWord"
+      (input)="showResults()"
+    />
+    <button class="search-wrapper__setting-button" (click)="openSettings()">
+      <img src="../../../assets/images/settings-icon.png" alt="settings-image" />
+    </button>
+    <p>{{ login }}</p>
+    <a [routerLink]="['auth']" *ngIf="!isLogin">Auth</a>
+    <button *ngIf="isLogin" (click)="exitUser()">Exit</button>
+  </div>
+  <app-settings-component *ngIf="isSettingsOpen"></app-settings-component>
+</header>

@@ -1,0 +1,34 @@
+@import '../../../../../mixins.scss';
+
+header {
+  width: 100%;
+  background-color: $header-background-color;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 570px;
+  height: 80px;
+
+  &__play-icon-img {
+    margin-right: 15px;
+  }
+
+  &__search-video {
+    width: 396px;
+    height: 24px;
+    border: none;
+    background-color: $input-background-color;
+  }
+
+  &__setting-button {
+    height: 24px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: $btn-background-color;
+  }
+}
