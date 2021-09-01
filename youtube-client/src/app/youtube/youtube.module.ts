@@ -13,8 +13,8 @@ import { InterceptorService } from './services/interceptor.service';
   declarations: [SearchResultsComponent, HighlightBottomDirective, OrderByPipe, SortByWordPipe, DetailedInfoCardComponent],
   imports: [
     RouterModule.forChild([
-      { path: 'main', component: SearchResultsComponent },
-      { path: 'main/:id', component: DetailedInfoCardComponent },
+      { path: '', component: SearchResultsComponent },
+      { path: ':id', component: DetailedInfoCardComponent },
     ]),
     CommonModule,
     HttpClientModule,

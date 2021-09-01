@@ -8,12 +8,10 @@ const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule) },
   {
-    path: '',
+    path: 'main',
     loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule),
     canActivate: [AuthGuard],
   },
-  // { path: 'main/:id', loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule) },
-
   { path: '**', component: NotFoundComponent },
 ];
 
