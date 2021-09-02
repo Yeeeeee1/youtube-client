@@ -41,7 +41,6 @@ export class HeaderComponentComponent implements OnInit {
     if (this.searchWord.length >= 3) {
       this.youtubeService.getData(this.searchWord).subscribe((videoData: ISearchResponseModel) => {
         this.store.dispatch(addVideoData({ videoData: videoData.items }));
-        this.youtubeService.showResults(true);
       });
     }
   }

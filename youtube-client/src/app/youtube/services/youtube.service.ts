@@ -5,13 +5,13 @@ import { mockVideoData } from 'src/assets/data/mockData';
 import { ISearchResponseModel } from '../models/search-response.model';
 import { map, mergeMap, switchMap } from 'rxjs/operators';
 import { ISearchItemModel } from '../models/search-item.model';
+import { Store } from '@ngrx/store';
+import { addVideoData } from 'src/app/ngrx/actions/youtube.action';
 
 @Injectable({
   providedIn: 'root',
 })
 export class YoutubeService {
-  clickSearchEvent: EventEmitter<boolean> = new EventEmitter();
-
   constructor(private httpClient: HttpClient) {}
 
   getData(searchWord: string): Observable<ISearchResponseModel> {
@@ -25,9 +25,5 @@ export class YoutubeService {
 
   getVideo(id: string | null): Observable<ISearchResponseModel> {
     return this.httpClient.get<ISearchResponseModel>(`videos?part=snippet,statistics&id=${id}`);
-  }
-
-  showResults(data: boolean): void {
-    this.clickSearchEvent.emit(data);
   }
 }
