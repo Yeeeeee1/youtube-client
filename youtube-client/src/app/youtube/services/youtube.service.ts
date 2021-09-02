@@ -1,12 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, EventEmitter } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { mockVideoData } from 'src/assets/data/mockData';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ISearchResponseModel } from '../models/search-response.model';
-import { map, mergeMap, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { ISearchItemModel } from '../models/search-item.model';
-import { Store } from '@ngrx/store';
-import { addVideoData } from 'src/app/ngrx/actions/youtube.action';
 
 @Injectable({
   providedIn: 'root',
