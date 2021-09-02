@@ -1,0 +1,71 @@
+import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { ISortModel } from '../../../../core/components/header/settings-component/models/sortModel';
+import { mockVideoData } from 'src/assets/data/mockData';
+import { ISearchResponseModel } from '../../../models/search-response.model';
+import { YoutubeService } from 'src/app/youtube/services/youtube.service';
+import { Observable, Subscription } from 'rxjs';
+import { SortService } from 'src/app/youtube/services/sort.service';
+import { Store, select } from '@ngrx/store';
+import { youtubeSelector } from 'src/app/ngrx/selectors/youtube.selector';
+import { map } from 'rxjs/operators';
+import { ISearchItemModel } from 'src/app/youtube/models/search-item.model';
+import { ICardModel } from 'src/app/shared/models/CardModel';
+import { cardSelector } from 'src/app/ngrx/selectors/card.selector';
+
+@Component({
+  selector: 'app-search-results',
+  templateUrl: './search-results.component.html',
+  styleUrls: ['./search-results.component.scss'],
+})
+export class SearchResultsComponent implements OnInit, OnDestroy {
+  constructor(private youtubeService: YoutubeService, private sortService: SortService, private store: Store) {}
+
+  sortObj: ISortModel = { term: 'publishedAt', mode: 1 };
+  word = '';
+  term = '';
+  mode = -1;
+  isSearch = false;
+  videoData: ISearchItemModel[] = mockVideoData.items;
+  cardData: ICardModel[] = [{ title: '', description: '', urlToImage: '', urlToVideo: '', date: 0 }];
+  changeSortObjEventSub: Subscription | null = new Subscription();
+  changeSortWordEventSub: Subscription | null = new Subscription();
+  selectVideoDataSub: Subscription | null = new Subscription();
+  selectCardDataSub: Subscription | null = new Subscription();
+
+  ngOnInit(): void {
+    this.selectCardDataSub = this.store.select<ICardModel[]>(cardSelector).subscribe((data: ICardModel[]) => (this.cardData = data));
+    if (this.cardData[0].title === '') {
+      this.cardData = this.cardData.slice(1, this.cardData.length);
+    }
+    this.selectVideoDataSub = this.store.select<ISearchItemModel[]>(youtubeSelector).subscribe((data: ISearchItemModel[]) => {
+      this.videoData = data;
+    });
+    this.changeSortObjEventSub = this.sortService.changeSortObjEvent.subscribe((data: ISortModel) => {
+      this.sortObj = data;
+      this.term = this.sortObj.term;
+      this.mode = this.sortObj.mode;
+    });
+    this.changeSortWordEventSub = this.sortService.changeSortWordEvent.subscribe((data: string) => {
+      this.word = data;
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.selectCardDataSub) {
+      this.selectCardDataSub.unsubscribe();
+      this.selectCardDataSub = null;
+    }
+    if (this.selectVideoDataSub) {
+      this.selectVideoDataSub.unsubscribe();
+      this.selectVideoDataSub = null;
+    }
+    if (this.changeSortObjEventSub) {
+      this.changeSortObjEventSub.unsubscribe();
+      this.changeSortObjEventSub = null;
+    }
+    if (this.changeSortWordEventSub) {
+      this.changeSortWordEventSub.unsubscribe();
+      this.changeSortWordEventSub = null;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import '../../../../../mixins.scss';
+
+.settings-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: $settings-background-color;
+
+  &__text {
+    color: $settings-text-color;
+  }
+
+  &__sorting-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__sorting-btn {
+      cursor: pointer;
+      color: $btn-sort-color;
+      margin-left: 21px;
+      text-decoration: underline;
+
+      &:first-child {
+        margin-left: 10px;
+      }
+
+      &:last-child {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__search-sort {
+    width: 149px;
+    height: 13px;
+    border: none;
+  }
+}

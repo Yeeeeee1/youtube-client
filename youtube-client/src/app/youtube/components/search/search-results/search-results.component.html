@@ -1,0 +1,28 @@
+<main>
+  <div *ngFor="let card of cardData" class="custom-card-wrapper">
+    <p>{{ card.title }}</p>
+    <p>{{ card.description }}</p>
+    <img [src]="card.urlToImage" alt="poster" />
+    <a [href]="card.urlToVideo">Link</a>
+    <p>Date: {{ card.date }}</p>
+  </div>
+  <div
+    class="card"
+    *ngFor="let videoObj of videoData | orderBy: term:mode | sortByWord: word"
+    [appHighlightBottom]="videoObj.snippet.publishedAt"
+  >
+    <img [src]="videoObj.snippet.thumbnails.medium.url" class="card__video-poster" alt="video-poster" />
+    <div class="card__video-characteristics">
+      <img src="../../../assets/images/viewed.png" alt="view-icon" />
+      <p>{{ videoObj?.statistics?.viewCount }}</p>
+      <img src="../../../assets/images/liked.png" alt="like-icon" />
+      <p>{{ videoObj?.statistics?.likeCount }}</p>
+      <img src="../../../assets/images/dislike.png" alt="dislike-icon" />
+      <p>{{ videoObj?.statistics?.dislikeCount }}</p>
+      <img src="../../../assets/images/comments.png" alt="comment-count" />
+      <p>{{ videoObj?.statistics?.commentCount }}</p>
+    </div>
+    <h2 class="card__title">{{ videoObj.snippet.title }}</h2>
+    <button class="card__btn-more" [routerLink]="['/main/' + videoObj.id]">more...</button>
+  </div>
+</main>
