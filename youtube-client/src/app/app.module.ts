@@ -10,10 +10,12 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { YoutubeService } from './youtube/services/youtube.service';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { InterceptorService } from './youtube/services/interceptor.service';
+import { AdminComponent } from './admin/admin/admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [CommonModule, BrowserModule, AppRoutingModule, CoreModule, SharedModule, HttpClientModule],
+  declarations: [AppComponent, AdminComponent],
+  imports: [CommonModule, BrowserModule, AppRoutingModule, CoreModule, SharedModule, HttpClientModule, ReactiveFormsModule],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent],
 })

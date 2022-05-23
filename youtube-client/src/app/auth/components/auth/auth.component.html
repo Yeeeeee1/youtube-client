@@ -1,3 +1,11 @@
-<input type="login" name="login" placeholder="Login" id="login" [(ngModel)]="login" />
-<input type="password" name="password" placeholder="Password" id="password" [(ngModel)]="password" />
-<button (click)="signUp()">Auth</button>
+<form [formGroup]="registrationForm" (submit)="signUp()">
+  <div *ngIf="registrationForm.controls['name'].errors?.required" class="alert">Please enter a login email</div>
+  <div *ngIf="registrationForm.controls['name'].errors?.pattern" class="alert">The login email is invalid</div>
+  <input type="login" name="name" placeholder="Please enter a login email" id="name" maxlength="30" formControlName="name" />
+  <div *ngIf="registrationForm.controls['name'].errors?.required" class="alert">Please enter a password</div>
+  <div *ngIf="registrationForm.controls['name'].errors?.pattern" class="alert">
+    Password must contain more than 8 characters, 1 numeric, 1 upper case letter, and 1 special character($@$!%*?&)
+  </div>
+  <input type="password" name="password" placeholder="Please enter a password" id="password" maxlength="25" formControlName="password" />
+  <button type="submit">Auth</button>
+</form>

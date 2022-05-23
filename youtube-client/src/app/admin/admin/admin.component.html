@@ -1,0 +1,29 @@
+<form [formGroup]="form" (submit)="createCard()">
+  <!-- name -->
+  <div *ngIf="form.controls['name'].errors?.required" class="alert">Please enter a title</div>
+  <div *ngIf="form.controls['name'].errors?.minLength" class="alert">The title is too short</div>
+  <div *ngIf="form.controls['name'].errors?.maxlength" class="alert">The title is too long</div>
+
+  <input type="login" name="name" placeholder="name" id="name" minlength="3" maxlength="30" formControlName="name" />
+  <!-- description -->
+
+  <div *ngIf="form.controls['description'].errors?.maxlength" class="alert">The description is too long</div>
+
+  <input type="text" name="description" placeholder="description" id="description" formControlName="description" />
+  <!-- image -->
+  <div *ngIf="form.controls['image'].errors?.required" class="alert">Please enter a link to the image</div>
+  <div *ngIf="form.controls['image'].errors?.pattern" class="alert">The image link is invalid</div>
+
+  <input type="text" name="image" placeholder="image" id="image" formControlName="image" />
+  <!-- video -->
+  <div *ngIf="form.controls['video'].errors?.required" class="alert">Please enter a link to the video</div>
+  <div *ngIf="form.controls['video'].errors?.pattern" class="alert">The video link is invalid</div>
+
+  <input type="text" name="video" placeholder="video" id="video" formControlName="video" />
+  <!-- creationDate -->
+  <div *ngIf="form.controls['creationDate'].errors?.required" class="alert">Please enter a creation date</div>
+  <div *ngIf="form.controls['creationDate'].errors?.pattern" class="alert">The date is invalid</div>
+
+  <input type="creationDate" name="creationDate" placeholder="creation date" id="creationDate" formControlName="creationDate" />
+  <button type="submit">Create card</button>
+</form>
