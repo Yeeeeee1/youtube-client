@@ -1,25 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponentComponent } from './header/header-component/header-component.component';
-import { SettingsComponentComponent } from './header/settings-component/settings-component.component';
-import { FooterComponentComponent } from './footer/footer-component/footer-component.component';
-import { SearchItemComponent } from './search/search-results/search-item/search-item.component';
-import { SearchResultsComponent } from './search/search-results/search-results.component';
+import { SharedModule } from './shared/shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { YoutubeService } from './youtube/services/youtube.service';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { InterceptorService } from './youtube/services/interceptor.service';
+import { AdminComponent } from './admin/admin/admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponentComponent,
-    SettingsComponentComponent,
-    FooterComponentComponent,
-    SearchItemComponent,
-    SearchResultsComponent,
-  ],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  declarations: [AppComponent, AdminComponent],
+  imports: [CommonModule, BrowserModule, AppRoutingModule, CoreModule, SharedModule, HttpClientModule, ReactiveFormsModule],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
